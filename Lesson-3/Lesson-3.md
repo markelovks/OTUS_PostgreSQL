@@ -32,8 +32,8 @@
     sudo usermod -aG docker ${USER}
     su - ${USER}
     ```
-    - Проверка \
-  <br/>
+    - Проверка 
+  
     ```
     docker version
     Client: Docker Engine - Community
