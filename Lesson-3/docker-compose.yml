@@ -1,0 +1,26 @@
+services:
+  postgre-server:
+    image: postgres:15.6-bookworm
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: user1
+      POSTGRES_PASSWORD: user1pwd
+      POSTGRES_DB: db1
+      PGDATA: "/var/lib/postgresql/data/pgdata"  
+    volumes:
+      - /var/lib/postgres:/var/lib/postgresql/data/pgdata
+    networks:
+      postgre:
+    ports:
+      - "5432:5432"    
+
+  postgre-client:
+    image: postgres:15.6-bookworm
+    shm_size: 128mb
+    entrypoint: "sleep infinity"
+    networks:
+      - postgre
+
+networks:
+  postgre:
+    driver: bridge
