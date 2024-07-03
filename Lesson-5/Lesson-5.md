@@ -86,8 +86,36 @@
    tps = 192.027030 (without initial connection time)
    postgres@test7:/home/user7$
 
-Применить параметры настройки PostgreSQL из прикрепленного к материалам занятия файла
-Протестировать заново
+4. Применить параметры настройки PostgreSQL из прикрепленного к материалам занятия файла
+5. Протестировать заново
+   ```
+   postgres@test7:/home/user7$ pgbench -c8 -P 6 -T 60 -U postgres postgres
+   pgbench (15.7 (Ubuntu 15.7-1.pgdg22.04+1))
+   starting vacuum...end.
+   progress: 6.0 s, 98.1 tps, lat 79.757 ms stddev 43.439, 0 failed
+   progress: 12.0 s, 131.2 tps, lat 61.223 ms stddev 33.066, 0 failed
+   progress: 18.0 s, 157.2 tps, lat 51.025 ms stddev 29.641, 0 failed
+   progress: 24.0 s, 183.3 tps, lat 43.559 ms stddev 23.474, 0 failed
+   progress: 30.0 s, 180.3 tps, lat 44.436 ms stddev 27.503, 0 failed
+   progress: 36.0 s, 209.3 tps, lat 38.168 ms stddev 20.433, 0 failed
+   progress: 42.0 s, 219.7 tps, lat 36.351 ms stddev 19.133, 0 failed
+   progress: 48.0 s, 172.3 tps, lat 46.445 ms stddev 25.787, 0 failed
+   progress: 54.0 s, 168.8 tps, lat 47.356 ms stddev 25.299, 0 failed
+   progress: 60.0 s, 207.3 tps, lat 38.670 ms stddev 21.154, 0 failed
+   transaction type: <builtin: TPC-B (sort of)>
+   scaling factor: 1
+   query mode: simple
+   number of clients: 8
+   number of threads: 1
+   maximum number of tries: 1
+   duration: 60 s
+   number of transactions actually processed: 10374
+   number of failed transactions: 0 (0.000%)
+   latency average = 46.235 ms
+   latency stddev = 28.252 ms
+   initial connection time = 68.647 ms
+   tps = 172.945998 (without initial connection time)
+   postgres@test7:/home/user7$ 
 Что изменилось и почему?
 Создать таблицу с текстовым полем и заполнить случайными или сгенерированными данным в размере 1млн строк
 Посмотреть размер файла с таблицей
